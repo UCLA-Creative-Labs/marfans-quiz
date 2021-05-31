@@ -6,10 +6,13 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "npx eslint '**/*.tsx' '**/*.ts' && npx stylelint '**/*.css' '**/*.scss'",
+    "eslint": "npx eslint '**/*.tsx' '**/*.ts'",
+    "stylelint": "npx stylelint '**/*.css' '**/*.scss'",
+    "lint": "yarn run eslint && yarn run stylelint",
     "no-lock": "scripts/noPackageLock.sh"
   },
   "dependencies": {
+    "@svgr/webpack": "^5.5.0",
     "next": "10.0.9",
     "react": "17.0.2",
     "react-dom": "17.0.2"
@@ -17,8 +20,8 @@
   "devDependencies": {
     "@types/node": "^14.14.35",
     "@types/react": "^17.0.3",
-    "@typescript-eslint/eslint-plugin": "^4.19.0",
-    "@typescript-eslint/parser": "^4.19.0",
+    "@typescript-eslint/eslint-plugin": "^4.26.0",
+    "@typescript-eslint/parser": "^4.26.0",
     "eslint": "^7.22.0",
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-react": "^7.23.1",
