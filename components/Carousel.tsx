@@ -74,7 +74,7 @@ export default function Carousel(props: CarouselProps): JSX.Element {
         ? <Splash/>
         : slideIdx > questions.length
           ? <Results reset={reset}/>
-          : <QuizQuestion question={questions[slideIdx - 1]}/> }
+          : <QuizQuestion slideIdx={slideIdx} question={questions[slideIdx - 1]}/> }
     </CarouselContext.Provider>
   );
 }
