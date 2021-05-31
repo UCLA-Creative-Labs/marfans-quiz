@@ -19,7 +19,7 @@ export default function QuizQuestion(props: QuizQuestionProps): JSX.Element {
     projects.map(project => user[project]++);
     setUser(user);
     next();
-  }
+  };
 
   return (
     <div id={styles.container}>
@@ -34,7 +34,7 @@ export default function QuizQuestion(props: QuizQuestionProps): JSX.Element {
           {answer.answer}
         </button>,
       )}
-      {selection && 
+      {selection &&
         <button className={styles.next} onClick={submit}>
           Next Question
         </button>

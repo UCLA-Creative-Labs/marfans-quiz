@@ -8,7 +8,7 @@ export const FIREBASE_DEV = {
   storageBucket: 'marfans-quiz-dev.appspot.com',
   messagingSenderId: '1061747901205',
   appId: '1:1061747901205:web:22fee5912a8973fdd21f1c',
-  measurementId: 'G-2X770Z8408'
+  measurementId: 'G-2X770Z8408',
 };
 
 // const app = firebase.initializeApp(process.env.NODE_ENV === 'production'
