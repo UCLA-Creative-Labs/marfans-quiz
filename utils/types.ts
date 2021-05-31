@@ -4,12 +4,12 @@ export interface Question {
 }
 
 export enum PROJECT {
-  LARK='LARK',
-  AR_UX='ARUX',
-  MOVING_ON='MOVING_ON',
-  LETS_TAKE_A_WALK='LETS_TAKE_A_WALK',
-  BUY_SMALL='BUY_SMALL',
-  E_MOTION='E_MOTION',
+  LARK='lark',
+  AR_UX='AR/UX',
+  MOVING_ON='moving (on)',
+  LETS_TAKE_A_WALK='let\'s take a walk',
+  BUY_SMALL='buy small',
+  E_MOTION='e-motion',
 }
 
 export interface Answer {
