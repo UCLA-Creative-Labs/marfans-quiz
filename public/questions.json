@@ -315,6 +315,7 @@
   },
   {
     "question": "Would you wear this shirt?",
+    "image": "/shirt-design.png",
     "answers": [
       {
         "answer": "hell yes",

@@ -21,11 +21,9 @@ const FIREBASE_PROD = {
   measurementId: "G-SR0ZYYS7C8"
 }
 
-console.log(process.env.env === 'production');
-
 const app =
   !firebase.apps.length
-    ? (firebase.initializeApp(process.env.NODE_ENV === 'production'
+    ? (firebase.initializeApp(process.env.env === 'production'
       ? FIREBASE_PROD
       : FIREBASE_DEV))
     : firebase.app();
@@ -42,7 +40,7 @@ export class _Firebase {
         this.auth_user = user;
         const projectsDoc = firebase
           .firestore(app)
-          .collection((process.env.NODE_ENV === 'production')
+          .collection((process.env.env === 'production')
             ? 'marfans-quiz'
             : 'marfans-quiz-dev')
           .doc('PROJECTS');
@@ -70,7 +68,7 @@ export class _Firebase {
     if (!this.auth_user) return Promise.resolve();
     return firebase
       .firestore(app)
-      .collection((process.env.NODE_ENV === 'production')
+      .collection((process.env.env === 'production')
         ? 'marfans-quiz'
         : 'marfans-quiz-dev')
       .doc('PROJECTS')

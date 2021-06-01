@@ -13,7 +13,7 @@ export default function Home(): JSX.Element {
 
     setQuestions(shuffled
       ? JSON.parse(shuffled) as Question[]
-      : shuffle([...QUESTIONS, finalQuestion]));
+      : [...shuffle(QUESTIONS), finalQuestion]);
   }, []);
 
   useEffect(() => {

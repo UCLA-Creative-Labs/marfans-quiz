@@ -1,5 +1,6 @@
 export interface Question {
   question: string;
+  image?: string;
   answers: Answer[];
 }
 

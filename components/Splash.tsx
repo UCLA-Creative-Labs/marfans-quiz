@@ -9,12 +9,12 @@ export default function Splash(): JSX.Element {
   return (
     <div id={styles.container}>
       <Image
-        src={'/logo.svg'}
+        src={'/logo.png'}
         width='120'
         height='17'/>
       <h1> What CL project are you? </h1>
       <Image
-        src={'/landscape.svg'}
+        src={'/landscape.png'}
         width='589'
         height='273'/>
       <div id={styles.body}>
