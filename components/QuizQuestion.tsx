@@ -35,7 +35,7 @@ export default function QuizQuestion(props: QuizQuestionProps): JSX.Element {
         </button>,
       )}
       <button className={styles.next} onClick={submit}>
-        Next Question
+        {slideIdx === quizLen ? 'Submit' : 'Next Question'}
       </button>
     </div>
   );

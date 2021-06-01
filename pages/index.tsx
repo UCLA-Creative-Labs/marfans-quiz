@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Carousel from '../components/Carousel';
 import Layout from '../components/Layout';
-import { QUESTIONS, Question } from '../utils';
+import { QUESTIONS, Question, finalQuestion } from '../utils';
 import { shuffle } from '../utils/array';
 
 export default function Home(): JSX.Element {
@@ -13,7 +13,7 @@ export default function Home(): JSX.Element {
 
     setQuestions(shuffled
       ? JSON.parse(shuffled) as Question[]
-      : shuffle(QUESTIONS));
+      : shuffle([...QUESTIONS, finalQuestion]));
   }, []);
 
   useEffect(() => {
