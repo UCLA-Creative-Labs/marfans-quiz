@@ -17,12 +17,13 @@ export default function QuizQuestion(props: QuizQuestionProps): JSX.Element {
     const {projects} = selection;
     projects.map(project => user[project]++);
     setUser(user);
+    setSelection(null);
     next();
   };
 
   return (
     <div id={styles.container}>
-      <p>{slideIdx}/{quizLen}</p>
+      <p id={styles.progress}>{slideIdx}/{quizLen}</p>
       <h1>{question}</h1>
       {answers.map((answer, i) =>
         <button
@@ -33,11 +34,9 @@ export default function QuizQuestion(props: QuizQuestionProps): JSX.Element {
           {answer.answer}
         </button>,
       )}
-      {selection &&
-        <button className={styles.next} onClick={submit}>
-          Next Question
-        </button>
-      }
+      <button className={styles.next} onClick={submit}>
+        Next Question
+      </button>
     </div>
   );
 }

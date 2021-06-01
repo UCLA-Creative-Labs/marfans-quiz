@@ -1,8 +1,7 @@
 import firebase from 'firebase';
-
 import { PROJECT } from './types';
 
-export const FIREBASE_DEV = {
+const FIREBASE_DEV = {
   apiKey: 'AIzaSyC-2MLU3Q02juzp7z3WcprfAjzby9EXH4A',
   authDomain: 'marfans-quiz-dev.firebaseapp.com',
   projectId: 'marfans-quiz-dev',
@@ -12,10 +11,20 @@ export const FIREBASE_DEV = {
   measurementId: 'G-2X770Z8408',
 };
 
+const FIREBASE_PROD = {
+  apiKey: "AIzaSyAhZHDNuy30rH-k59Cz1Km6kHQqtQxB4tQ",
+  authDomain: "marfans-3b2fe.firebaseapp.com",
+  projectId: "marfans-3b2fe",
+  storageBucket: "marfans-3b2fe.appspot.com",
+  messagingSenderId: "22687257895",
+  appId: "1:22687257895:web:02b46ca0071862fda20502",
+  measurementId: "G-SR0ZYYS7C8"
+}
+
 const app =
   !firebase.apps.length
     ? (firebase.initializeApp(process.env.NODE_ENV === 'production'
-      ? FIREBASE_DEV
+      ? FIREBASE_PROD
       : FIREBASE_DEV))
     : firebase.app();
 
@@ -55,21 +64,6 @@ export class _Firebase {
       .signOut();
   }
 
-  protected retrieveDocument(ternaryOp?: (...arg: any[]) => any) {
-    if (!this.auth_user) return Promise.resolve(undefined);
-    const document = firebase
-      .firestore(app)
-      .collection('users')
-      .doc(this.auth_user.uid);
-      return document.get().then((doc) => {
-        return doc.exists ? doc.data() : ternaryOp && ternaryOp(this.auth_user);
-      });
-  }
-
-  public getUser(): Promise<any> {
-    return this.retrieveDocument();
-  }
-
   public updateProjectCount(project: PROJECT): Promise<void> {
     if (!this.auth_user) return Promise.resolve();
     return firebase
@@ -80,10 +74,6 @@ export class _Firebase {
       .doc('PROJECTS')
       .update({
         [project]: firebase.firestore.FieldValue.increment(1)
-      }).then(() => {
-        console.log('success could update');
-      }).catch((ex) => {
-        console.error('failure couldnt update', ex);
       });
   }
 }

@@ -11,16 +11,20 @@ export default function Home(): JSX.Element {
     const storage = window.sessionStorage;
     const shuffled = storage.getItem('shuffled');
 
-    if (shuffled) setQuestions(JSON.parse(shuffled) as Question[]);
-    else {
-      const shuffledQs = shuffle(QUESTIONS);
-      storage.setItem('shuffled', JSON.stringify(shuffledQs));
-    }
+    setQuestions(shuffled
+      ? JSON.parse(shuffled) as Question[]
+      : shuffle(QUESTIONS));
   }, []);
 
-  return questions.length > 0 ? (
+  useEffect(() => {
+    const storage = window.sessionStorage;
+
+    storage.setItem('shuffled', JSON.stringify(questions));
+  }, [questions]);
+
+  return (
     <Layout>
       <Carousel questions={questions}/>
     </Layout>
-  ) : <></>; // TODO: Add loading indicator? Might not be necessary since it's so short.
+  );
 }

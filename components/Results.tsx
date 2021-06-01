@@ -12,6 +12,7 @@ export default function Results(props: ResultsProps): JSX.Element {
   const {reset} = props;
 
   useEffect(() => {
+    const max = useEffect
     const maxProject =
       Object.keys(user).reduce((key_l: PROJECT, key_r: PROJECT) =>
                                user[key_l] > user[key_r] ? key_l : key_r);

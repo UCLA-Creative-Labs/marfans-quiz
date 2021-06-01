@@ -46,7 +46,7 @@ export default function Carousel(props: CarouselProps): JSX.Element {
     [PROJECT.BUY_SMALL]: 0,
     [PROJECT.E_MOTION]: 0,
   });
-  const [firebase, setFirebase] = useState(new _Firebase());
+  const [firebase] = useState(new _Firebase());
 
   useEffect(() => {
     const storage = window.sessionStorage;
@@ -55,14 +55,10 @@ export default function Carousel(props: CarouselProps): JSX.Element {
 
     if (idx) setSlideIdx(+idx);
     if (state) setUser(JSON.parse(state));
-
+  
     firebase.auth().signInAnonymously()
       .then(() => {
-        console.log('signed in');
-        firebase.load(
-          () => { console.log('firebase success') },
-          () => { console.log('firebase fail') }
-        );
+        firebase.load(() => void 0, () => void 0);
       });
 
     return () => {
