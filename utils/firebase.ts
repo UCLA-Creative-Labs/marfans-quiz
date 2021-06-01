@@ -21,7 +21,7 @@ const FIREBASE_PROD = {
   measurementId: "G-SR0ZYYS7C8"
 }
 
-console.log(process.env.NODE_ENV === 'production');
+console.log(process.env.env === 'production');
 
 const app =
   !firebase.apps.length

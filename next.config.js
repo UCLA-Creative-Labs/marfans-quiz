@@ -13,7 +13,7 @@ module.exports = {
 
   // Environment
   env: {
-    NODE_ENV: process.env.NODE_ENV,
+    env: process.env.NODE_ENV,
   },
   
   // SVG loader
