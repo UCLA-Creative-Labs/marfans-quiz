@@ -36,10 +36,9 @@ export default function QuizQuestion(props: QuizQuestionProps): JSX.Element {
           {answer.answer}
         </button>,
       )}
-      {selection && 
-        <button className={styles.next} onClick={submit}>
-          {slideIdx === quizLen ? 'Submit' : 'Next Question'}
-        </button>}
+      <button style={selection && {visibility: 'visible'}} className={styles.next} onClick={submit}>
+        {slideIdx === quizLen ? 'Submit' : 'Next Question'}
+      </button>
     </div>
   );
 }
