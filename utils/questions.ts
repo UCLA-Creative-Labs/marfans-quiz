@@ -1,7 +1,7 @@
 import { PROJECT, Answer } from './types';
 import { Question } from './';
 
-import questions from '../assets/questions.json';
+import questions from '../public/questions.json';
 
 export const QUESTIONS: Question[] =
   questions.map(question => {
