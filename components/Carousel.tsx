@@ -1,5 +1,7 @@
 import React, {createContext, useEffect, useState} from 'react';
-import { Question, PROJECT, UserInfo } from '../utils';
+
+import { Question, PROJECT } from '../utils';
+import { _Firebase } from '../utils/firebase';
 import QuizQuestion from './QuizQuestion';
 import Results from './Results';
 import Splash from './Splash';
@@ -8,11 +10,21 @@ export interface CarouselProps {
   questions: Question[];
 }
 
+interface ProjectScores {
+  [PROJECT.LARK]: number;
+  [PROJECT.AR_UX]: number;
+  [PROJECT.MOVING_ON]: number;
+  [PROJECT.LETS_TAKE_A_WALK]: number;
+  [PROJECT.BUY_SMALL]: number;
+  [PROJECT.E_MOTION]: number;
+}
+
 interface ICarouselContext {
   quizLen: number;
   next: () => void;
-  setUser: React.Dispatch<React.SetStateAction<UserInfo>>;
-  user: UserInfo;
+  setUser: React.Dispatch<React.SetStateAction<ProjectScores>>;
+  user: ProjectScores;
+  firebase: _Firebase;
 }
 
 export const CarouselContext = createContext<ICarouselContext>({
@@ -20,12 +32,13 @@ export const CarouselContext = createContext<ICarouselContext>({
   next: null,
   setUser: null,
   user: null,
+  firebase: null,
 });
 
 export default function Carousel(props: CarouselProps): JSX.Element {
   const {questions} = props;
   const [slideIdx, setSlideIdx] = useState(0);
-  const [user, setUser] = useState<UserInfo>({
+  const [user, setUser] = useState<ProjectScores>({
     [PROJECT.LARK]: 0,
     [PROJECT.AR_UX]: 0,
     [PROJECT.MOVING_ON]: 0,
@@ -33,6 +46,7 @@ export default function Carousel(props: CarouselProps): JSX.Element {
     [PROJECT.BUY_SMALL]: 0,
     [PROJECT.E_MOTION]: 0,
   });
+  const [firebase, setFirebase] = useState(new _Firebase());
 
   useEffect(() => {
     const storage = window.sessionStorage;
@@ -41,6 +55,15 @@ export default function Carousel(props: CarouselProps): JSX.Element {
 
     if (idx) setSlideIdx(+idx);
     if (state) setUser(JSON.parse(state));
+
+    firebase.auth().signInAnonymously()
+      .then(() => {
+        console.log('signed in');
+        firebase.load(
+          () => { console.log('firebase success') },
+          () => { console.log('firebase fail') }
+        );
+      });
 
     return () => {
       storage.removeItem('slideIdx');
@@ -69,7 +92,7 @@ export default function Carousel(props: CarouselProps): JSX.Element {
 
   return (
     <CarouselContext.Provider
-      value={{ quizLen: questions.length, next, setUser, user }}>
+      value={{ quizLen: questions.length, next, setUser, user, firebase }}>
       {slideIdx === 0
         ? <Splash/>
         : slideIdx > questions.length

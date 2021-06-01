@@ -1,13 +1,24 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
+
 import { CarouselContext } from './Carousel';
+import { PROJECT } from '../utils/types';
 
 export interface ResultsProps {
   reset: () => void;
 }
 
 export default function Results(props: ResultsProps): JSX.Element {
-  const {user} = useContext(CarouselContext);
+  const {user, firebase} = useContext(CarouselContext);
   const {reset} = props;
+
+  useEffect(() => {
+    const maxProject =
+      Object.keys(user).reduce((key_l: PROJECT, key_r: PROJECT) =>
+                               user[key_l] > user[key_r] ? key_l : key_r);
+
+    firebase.updateProjectCount(maxProject as PROJECT);
+  }, []);
+
   return (
     <div>
       <h1>
