@@ -1,5 +1,5 @@
 import firebase from 'firebase';
-import { PROJECT } from './types';
+import { PROJECT, ProjectScores } from './types';
 
 const FIREBASE_DEV = {
   apiKey: 'AIzaSyC-2MLU3Q02juzp7z3WcprfAjzby9EXH4A',
@@ -68,12 +68,25 @@ export class _Firebase {
     if (!this.auth_user) return Promise.resolve();
     return firebase
       .firestore(app)
-      .collection((process.env.env === 'production')
+      .collection((process.env.NODE_ENV === 'production')
         ? 'marfans-quiz'
         : 'marfans-quiz-dev')
       .doc('PROJECTS')
       .update({
         [project]: firebase.firestore.FieldValue.increment(1)
       });
+  }
+
+  public getProjectCounts(): Promise<ProjectScores | void> {
+    if (!this.auth_user) return Promise.resolve();
+    return firebase
+      .firestore(app)
+      .collection((process.env.NODE_ENV === 'production')
+        ? 'marfans-quiz'
+        : 'marfans-quiz-dev')
+      .doc('PROJECTS')
+      .get()
+      .then(doc => doc.data() as ProjectScores)
+      .then(data => console.log(data));
   }
 }

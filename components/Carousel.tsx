@@ -1,6 +1,6 @@
 import React, {createContext, useEffect, useState} from 'react';
 
-import { Question, PROJECT } from '../utils';
+import { Question, ProjectScores, PROJECT } from '../utils';
 import { _Firebase } from '../utils/firebase';
 import QuizQuestion from './QuizQuestion';
 import Results from './Results';
@@ -8,15 +8,6 @@ import Splash from './Splash';
 
 export interface CarouselProps {
   questions: Question[];
-}
-
-interface ProjectScores {
-  [PROJECT.LARK]: number;
-  [PROJECT.AR_UX]: number;
-  [PROJECT.MOVING_ON]: number;
-  [PROJECT.LETS_TAKE_A_WALK]: number;
-  [PROJECT.BUY_SMALL]: number;
-  [PROJECT.E_MOTION]: number;
 }
 
 interface ICarouselContext {
