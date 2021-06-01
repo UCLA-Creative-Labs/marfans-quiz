@@ -1,0 +1,335 @@
+[
+
+    {
+        "question": "How do we feel about Minecraft?",
+    
+        "answers": [
+        {
+        "answer": "I only know Minetest",
+        "projects": ["E_MOTION", "MOVING_ON"]
+        },
+    
+        {
+        "answer": "I was homeschooled",
+        "projects": ["AR_UX"]
+        },
+    
+        {
+        "answer": "No thanks, I had friends in middle school",
+        "projects": ["LARK", "BUY_SMALL"]
+        },
+
+        {
+        "answer": "Dust of the Redstone",
+        "projects": ["MOVING_ON", "LETS_TAKE_A_WALK"]
+        }
+        ]
+    },
+    
+    {
+        "question": "amogus",
+    
+        "answers": [
+    
+        {
+        "answer": "amogus",
+        "projects": ["AR_UX", "MOVING_ON", "E_MOTION"]
+        },
+    
+        {
+        "answer": "Red is sus",
+        "projects": ["LARK", "AR_UX"]
+        },
+    
+        {
+        "answer": "I saw Blue vent",
+        "projects": ["BUY_SMALL"]
+        },
+    
+        {
+        "answer": "sussy baka",
+        "projects": ["LETS_TAKE_A_WALK"]
+        }
+        ]
+    },
+    
+    {
+        "question": "What anime are you watching?",
+    
+        "answers": [
+    
+        {
+        "answer": "I watched half of Ponyo",
+        "projects": ["LARK"]
+        },
+        {
+        "answer": "Is Ben 10 anime?",
+        "projects": ["BUY_SMALL"]
+        },
+        {
+        "answer": "I'm currently on my third re-watch of Haikyuu this month",
+        "projects": ["LETS_TAKE_A_WALK"]
+        },
+        {
+        "answer": "Gojo is a hottie <3",
+        "projects": ["MOVING_ON, LETS_TAKE_A_WALK"]
+        },
+        {
+        "answer": "I am from the Hidden Leaf Village",
+        "projects": ["E_MOTION", "BUY_SMALL"]
+        },
+        {
+        "answer": "something from Studio Ghibli of course",
+        "projects": ["AR_UX", "E_MOTION", "MOVING_ON"]
+        },
+        {
+        "answer": "Horimiya",
+        "projects": ["LETS_TAKE_A_WALK"]
+        }
+      ]
+    },
+    
+    {
+        "question": "What is your favorite fanfic genre?",
+    
+        "answers": [
+    
+        {
+        "answer": "I love gender benders",
+        "projects": ["BUY_SMALL"]
+        },
+        {
+        "answer": "my favorite fanfic is the EXO one that talks about types of aphasia and helped me pass my psych class",
+        "projects": ["MOVING_ON"]
+        },
+        {
+        "answer": "I can only handle fluff",
+        "projects": ["LETS_TAKE_A_WALK", "MOVING_ON", "AR_UX"]
+        },
+        {
+        "answer": "Magic Highschool AU",
+        "projects": ["AR_UX", "LARK"]
+        },
+        {
+        "answer": "I don't read fanfic",
+        "projects": ["LARK", "BUY_SMALL"]
+        },
+        {
+        "answer": "I need some angst in my life",
+        "projects": ["E_MOTION", "MOVING_ON"]
+        }
+        ]
+    },
+    
+    {
+        "question": "STAEL",
+    
+        "answers": [
+    
+        {
+        "answer": "Science Technology Arts Engineering Lettuce",
+        "projects": ["MOVING_ON"]
+        },
+        {
+        "answer": "State Transportation Always Ends Late",
+        "projects": ["E_MOTION"]
+        },
+        {
+        "answer": "Say To An Elephant: Lube",
+        "projects": ["AR_UX", "LARK"]
+        },
+        {
+        "answer": "shit talking around Estonian ladies",
+        "projects": ["LARK", "LETS_TAKE_A_WALK"]
+        },
+        {
+        "answer": "Sandia Technology Association: Engineering Laboratory",
+        "projects": ["BUY_SMALL"]
+        }
+        ]
+    },
+    
+    {
+        "question": "If you had to eat one of your body parts, what would it be?",
+    
+        "answers": [
+    
+        {
+        "answer": "I could stand to lose a finger or two",
+        "projects": ["E_MOTION", "LARK", "AR_UX"]
+        },
+        {
+        "answer": "No weenis skin off my back",
+        "projects": ["MOVING_ON", "BUY_SMALL"]
+        },
+        {
+        "answer": "My liver: it's dead from all the parties anyway",
+        "projects": ["AR_UX"]
+        },
+        {
+        "answer": "seCond tOe frOm the left on tCHe rIghEt foot",
+        "projects": ["LETS_TAKE_A_WALK"]
+        }
+        ]
+    },
+    
+    {
+        "question": "S-Tier Fruit?",
+    
+        "answers": [
+    
+        {
+        "answer": "tomato",
+        "projects": ["LARK"]
+        },
+        {
+        "answer": "mango",
+        "projects": ["AR_UX"]
+        },
+        {
+        "answer": "lychee",
+        "projects": ["E_MOTION", "MOVING_ON"]
+        },
+        {
+        "answer": "durian",
+        "projects": ["LARK", "LETS_TAKE_A_WALK", "BUY_SMALL"]
+        },
+        {
+        "answer": "apple",
+        "projects": ["AR_UX", "E_MOTION"]
+        },
+        {
+        "answer": "persimmon",
+        "projects": ["LETS_TAKE_A_WALK"]
+        }
+        ]
+    },
+    
+    {
+        "question": "Favorite Problematic Movie",
+    
+        "answers": [
+    
+        {
+        "answer": "Rush Hour",
+        "projects": ["AR_UX", "LETS_TAKE_A_WALK", "MOVING_ON"]
+        },
+        {
+        "answer": "Tropic Thunder",
+        "projects": ["LETS_TAKE_A_WALK", "AR_UX"]
+        },
+        {
+        "answer": "Indiana Jones",
+        "projects": ["LARK"]
+        },
+        {
+        "answer": "Pirates of the Carribean",
+        "projects": ["BUY_SMALL"]
+        },
+        {
+        "answer": "Raya and the Last Dragon",
+        "projects": ["MOVING_ON", "E_MOTION"]
+        }
+        ]
+    },
+    
+    {
+        "question": "Would you wear this shirt?",
+    
+        "answers": [
+    
+        {
+        "answer": "hell yes",
+        "projects": ["LARK", "LETS_TAKE_A_WALK", "MOVING_ON"]
+        },
+        {
+        "answer": "yes",
+        "projects": ["BUY_SMALL", "MOVING_ON"]
+        },
+        {
+        "answer": "maybe",
+        "projects": ["E_MOTION", "AR_UX"]
+        },
+        {
+        "answer": "no because I have no sense of style",
+        "projects": [""]
+        }
+        ]
+    },
+    
+    {
+        "question": "Thoughts on Crazy Frog?",
+    
+        "answers": [
+    
+        {
+        "answer": "AXEL F",
+        "projects": ["AR_UX", "BUY_SMALL", "LETS_TAKE_A_WALK"]
+        },
+        {
+        "answer": "Popcorn",
+        "projects": ["LARK"]
+        },
+        {
+        "answer": "Last Christmas",
+        "projects": ["MOVING_ON"]
+        },
+        {
+        "answer": "We are the Champions",
+        "projects": ["E_MOTION", "MOVING_ON", "LARK"]
+        }
+        ]
+    },
+    
+    {
+        "question": "Best pickup line?",
+    
+        "answers": [
+    
+        {
+        "answer": "Do you like soda? Because you look so-da-licious",
+        "projects": ["LETS_TAKE_A_WALK"]
+        },
+        {
+        "answer": "Please go out with me. Please? Please?",
+        "projects": ["E_MOTION"]
+        },
+        {
+        "answer": "If you were a chicken, you'd be impeccable",
+        "projects": ["BUY_SMALL"]
+        },
+        {
+        "answer": "Are you single? Do you want to be not single?",
+        "projects": ["LARK", "AR_UX"]
+        },
+        {
+        "answer": "Umm, girll... The back of yo head is redonkculous",
+        "projects": ["MOVING_ON", "LARK"]
+        }
+        ]
+    },
+    
+    {
+        "question": "are you coming to demo day? (6/4 @ 7:30 p.m. pdt)",
+    
+        "answers": [
+    
+        {
+        "answer": "yes",
+        "projects": []
+        },
+        {
+        "answer": "YES",
+        "projects": []
+        },
+        {
+        "answer": "Of course",
+        "projects": []
+        },
+        {
+        "answer": "I'll be there",
+        "projects": []
+        }
+        ]
+    }
+]

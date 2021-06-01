@@ -5,7 +5,8 @@ import { QUESTIONS } from '../utils';
 import { shuffle } from '../utils/array';
 
 export default function Home(): JSX.Element {
-  const questions = useRef(shuffle(QUESTIONS));
+  const questions = useRef(QUESTIONS);
+  console.log(QUESTIONS);
 
   return (
     <Layout>
