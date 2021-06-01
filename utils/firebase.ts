@@ -68,7 +68,7 @@ export class _Firebase {
     if (!this.auth_user) return Promise.resolve();
     return firebase
       .firestore(app)
-      .collection((process.env.NODE_ENV === 'production')
+      .collection((process.env.env === 'production')
         ? 'marfans-quiz'
         : 'marfans-quiz-dev')
       .doc('PROJECTS')
@@ -81,7 +81,7 @@ export class _Firebase {
     if (!this.auth_user) return Promise.resolve();
     return firebase
       .firestore(app)
-      .collection((process.env.NODE_ENV === 'production')
+      .collection((process.env.env === 'production')
         ? 'marfans-quiz'
         : 'marfans-quiz-dev')
       .doc('PROJECTS')
