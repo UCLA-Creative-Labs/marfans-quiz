@@ -86,7 +86,6 @@ export class _Firebase {
         : 'marfans-quiz-dev')
       .doc('PROJECTS')
       .get()
-      .then(doc => doc.data() as ProjectScores)
-      .then(data => console.log(data));
+      .then(doc => doc.data() as ProjectScores);
   }
 }

@@ -5,12 +5,29 @@ export interface Question {
 }
 
 export enum PROJECT {
-  LARK='lark',
-  AR_UX='AR/UX',
-  MOVING_ON='moving (on)',
-  LETS_TAKE_A_WALK='let\'s take a walk',
-  BUY_SMALL='buy small',
-  E_MOTION='e-motion',
+  LARK='LARK',
+  AR_UX='AR_UX',
+  MOVING_ON='MOVING_ON',
+  LETS_TAKE_A_WALK='LETS_TAKE_A_WALK',
+  BUY_SMALL='BUY_SMALL',
+  E_MOTION='E_MOTION',
+}
+
+export const project2String = (proj: PROJECT) => {
+  switch(proj) {
+    case PROJECT.LARK:
+      return 'lark';
+    case PROJECT.AR_UX:
+      return 'AR/UX';
+    case PROJECT.MOVING_ON:
+      return 'moving (on)';
+    case PROJECT.LETS_TAKE_A_WALK:
+      return 'Let\'s Take a Walk';
+    case PROJECT.BUY_SMALL:
+      return 'BuySmall';
+    case PROJECT.E_MOTION:
+      return 'e-motion';
+  }
 }
 
 export interface Answer {
@@ -26,4 +43,3 @@ export interface ProjectScores {
   [PROJECT.BUY_SMALL]: number;
   [PROJECT.E_MOTION]: number;
 }
-
