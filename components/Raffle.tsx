@@ -24,7 +24,7 @@ export default function Raffle(): JSX.Element {
 
   return (
     <div id={styles.container}>
-      <h1>Enter our raffle for free, limited edition stickers</h1>
+      <h1>drop ur socials for a surprise ;~)</h1>
       <p className={styles.label}>Name</p>
       <input
         className={styles.input}
