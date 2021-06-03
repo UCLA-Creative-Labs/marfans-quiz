@@ -38,3 +38,17 @@
   color: #ebecee;
   background-color: #000;
 }
+
+.label {
+  font-weight: bold;
+}
+
+.input {
+  width: 100%;
+  text-align: center;
+  margin: 1rem 0;
+  padding: 10px 0;
+  line-height: 1.6em;
+  font: $body-bold-font;
+  background-color: #0000;
+}

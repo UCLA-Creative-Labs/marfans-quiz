@@ -5,6 +5,7 @@ import { _Firebase } from '../utils/firebase';
 import QuizQuestion from './QuizQuestion';
 import Results from './Results';
 import Splash from './Splash';
+import Raffle from './Raffle';
 
 export interface CarouselProps {
   questions: Question[];
@@ -82,9 +83,11 @@ export default function Carousel(props: CarouselProps): JSX.Element {
       value={{ quizLen: questions.length, next, setUser, user, firebase }}>
       {slideIdx === 0
         ? <Splash/>
-        : slideIdx > questions.length
-          ? <Results reset={reset}/>
-          : <QuizQuestion slideIdx={slideIdx} question={questions[slideIdx - 1]}/> }
+        : slideIdx === questions.length + 1
+          ? <Raffle />
+          : slideIdx > questions.length
+            ? <Results reset={reset}/>
+            : <QuizQuestion slideIdx={slideIdx} question={questions[slideIdx - 1]}/> }
     </CarouselContext.Provider>
   );
 }

@@ -88,4 +88,14 @@ export class _Firebase {
       .get()
       .then(doc => doc.data() as ProjectScores);
   }
+
+  public addRaffleEntry(name: string, handle: string): Promise<void> {
+    if (!this.auth_user) return Promise.resolve();
+    const rand = Math.floor(Math.random() * 200);
+    return firebase
+      .firestore(app)
+      .collection('raffle-entries')
+      .doc(rand.toString())
+      .set({ name, handle });
+  }
 }

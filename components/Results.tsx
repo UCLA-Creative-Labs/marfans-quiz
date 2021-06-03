@@ -37,11 +37,11 @@ export default function Results(props: ResultsProps): JSX.Element {
           const percentage = Math.floor(num / total * 100);
           return (
             <div className={styles.result} key={project}>
+              <p>{project2String(PROJECT[project])}</p>
               <div className={styles.bar}>
                 <div className={styles.value} style={{width: `${percentage}%`}}/>
                 <div className={styles.percentage}>{percentage}%</div>
               </div>
-              <p>{project2String(PROJECT[project])}</p>
             </div>
           )})}
       </div>
