@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { CarouselContext } from './Carousel';
-import { PROJECT, ProjectScores, project2String } from '../utils/types';
+import { PROJECT, ProjectScores, project2String, project2Blurb } from '../utils/types';
 import styles from '../styles/Results.module.scss';
 
 export interface ResultsProps {
@@ -31,6 +31,7 @@ export default function Results(props: ResultsProps): JSX.Element {
     <div id={styles.container}>
       <h3>Results</h3>
       <h1>{project2String(result)}</h1>
+      <p>{project2Blurb(result)}</p>
       <div id={styles.results}>
         <p>How your results compare to everyone else:</p>
         {data && Object.entries(data).map(([project, num]) => {
