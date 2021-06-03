@@ -86,7 +86,6 @@
       {
         "answer": "Gojo is a hottie <3",
         "projects": [
-          "MOVING_ON",
           "LETS_TAKE_A_WALK"
         ]
       },
@@ -108,7 +107,8 @@
       {
         "answer": "Horimiya",
         "projects": [
-          "LETS_TAKE_A_WALK"
+          "LETS_TAKE_A_WALK",
+          "E_MOTION"
         ]
       }
     ]
@@ -268,7 +268,8 @@
       {
         "answer": "persimmon",
         "projects": [
-          "LETS_TAKE_A_WALK"
+          "LETS_TAKE_A_WALK",
+          "BUY_SMALL"
         ]
       }
     ]
@@ -280,8 +281,7 @@
         "answer": "Rush Hour",
         "projects": [
           "AR_UX",
-          "LETS_TAKE_A_WALK",
-          "MOVING_ON"
+          "LETS_TAKE_A_WALK"
         ]
       },
       {
@@ -371,7 +371,6 @@
         "answer": "We are the Champions",
         "projects": [
           "E_MOTION",
-          "MOVING_ON",
           "LARK"
         ]
       }
