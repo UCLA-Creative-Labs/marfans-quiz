@@ -1,6 +1,6 @@
 import React, {createContext, useEffect, useState} from 'react';
 
-import { Question, ProjectScores, PROJECT } from '../utils';
+import { Question, ProjectScores, PROJECT, shuffle, LOADING_PHRASES } from '../utils';
 import { _Firebase } from '../utils/firebase';
 import QuizQuestion from './QuizQuestion';
 import Results from './Results';
@@ -86,7 +86,7 @@ export default function Carousel(props: CarouselProps): JSX.Element {
         : slideIdx === questions.length + 1
           ? <Raffle />
           : slideIdx > questions.length
-            ? <Results reset={reset}/>
+            ? <Results reset={reset} LOADING_CONTENT={shuffle(LOADING_PHRASES)[0]}/>
             : <QuizQuestion slideIdx={slideIdx} question={questions[slideIdx - 1]}/> }
     </CarouselContext.Provider>
   );

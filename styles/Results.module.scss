@@ -58,3 +58,57 @@
   background-color: #000;
   margin-right: 10px;
 }
+
+#loading {
+  height: calc(100vh - 7rem - 80px);
+  max-width: 600px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+// Loader
+
+$animation: 700ms cubic-bezier(0.3, 0.5, 0.4, 0.9) infinite alternate-reverse;
+$size: 4rem;
+$displace: 2.5rem;
+
+#loader-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2.5rem 0;
+}
+
+.circle {
+  height: $size;
+  width: $size;
+  border-radius: 50%;
+  mix-blend-mode: screen;
+}
+
+.green {
+  background: #459B4F;
+  margin-right: $displace;
+  animation: attract-green $animation;
+}
+
+.blue {
+  background: #9FBCE8;
+  margin-left: $displace;
+  animation: attract-blue $animation;
+}
+
+@keyframes attract-green {
+  to {
+    transform: translateX(calc(#{$size} + calc(#{$displace} / 4)));
+  }
+}
+
+@keyframes attract-blue {
+  to {
+    transform: translateX(calc(#{$size} * -1 - calc(#{$displace} / 4)));
+  }
+}

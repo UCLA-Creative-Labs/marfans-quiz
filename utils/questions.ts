@@ -1,27 +1,6 @@
-import { PROJECT, Question, Answer } from './types';
+import { Question, Answer } from './types';
+import { PROJECT } from './constants';
 import questions from '../public/questions.json';
-
-export const finalQuestion: Question = {
-  question: 'are you coming to demo day? (6/4 @ 7:30 p.m. pdt)',
-  answers: [
-    {
-      answer: 'yes',
-      projects: [],
-    },
-    {
-      answer: 'YES',
-      projects: [],
-    },
-    {
-       answer: 'Of course',
-       projects: [],
-    },
-    {
-       answer: 'I\'ll be there',
-       projects: [],
-    }
-  ]
-};
 
 export const QUESTIONS: Question[] =
   questions.map(question => {
