@@ -1,5 +1,5 @@
 import firebase from 'firebase';
-import { PROJECT, ProjectScores } from './types';
+import { PROJECT, ProjectScores } from '.';
 
 const FIREBASE_DEV = {
   apiKey: 'AIzaSyC-2MLU3Q02juzp7z3WcprfAjzby9EXH4A',
