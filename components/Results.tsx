@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { CarouselContext } from './Carousel';
-import { PROJECT, ProjectScores, project2String, project2Blurb } from '../utils';
+import { ProjectScores } from '../utils';
 import styles from '../styles/Results.module.scss';
 
 export interface ResultsProps {
@@ -17,11 +17,11 @@ export default function Results(props: ResultsProps): JSX.Element {
   const {reset, LOADING_CONTENT} = props;
 
   useEffect(() => {
-    const _result = Object.keys(user).reduce((key_l: PROJECT, key_r: PROJECT) =>
+    const _result = Object.keys(user).reduce((key_l: string, key_r: string) =>
                                user[key_l] > user[key_r] ? key_l : key_r);
 
     setResult(_result);
-    firebase.updateProjectCount(_result as PROJECT).then(() => {
+    firebase.updateProjectCount(_result).then(() => {
       setTimeout(() => {
         setLoaded(true);
       }, 2500);
@@ -57,15 +57,15 @@ export default function Results(props: ResultsProps): JSX.Element {
   return (
     <div id={styles.container}>
       <h3>Results</h3>
-      <h1>{project2String(result)}</h1>
-      <p>{project2Blurb(result)}</p>
+      <h1>{result}</h1>
+      {/* <p>{project2Blurb(result)}</p> */}
       <div id={styles.results}>
         <p>How your results compare to everyone else:</p>
         {data && Object.entries(data).map(([project, num]) => {
           const percentage = Math.floor(num / total * 100);
           return (
             <div className={styles.result} key={project}>
-              <p>{project2String(PROJECT[project])}</p>
+              <p>{project}</p>
               <div className={styles.bar}>
                 <div className={styles.value} style={{width: `${percentage}%`}}/>
                 <div className={styles.percentage}>{percentage}%</div>

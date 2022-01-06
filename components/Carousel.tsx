@@ -1,6 +1,6 @@
 import React, {createContext, useEffect, useState} from 'react';
 
-import { Question, ProjectScores, PROJECT, shuffle, LOADING_PHRASES } from '../utils';
+import { Question, ProjectScores, PROJECTS, shuffle, LOADING_PHRASES } from '../utils';
 import { _Firebase } from '../utils/firebase';
 import QuizQuestion from './QuizQuestion';
 import Results from './Results';
@@ -27,17 +27,15 @@ export const CarouselContext = createContext<ICarouselContext>({
   firebase: null,
 });
 
+const resetUser = (): ProjectScores => PROJECTS.reduce((acc, p) => {
+  acc[p] = 0;
+  return acc;
+}, {});
+
 export default function Carousel(props: CarouselProps): JSX.Element {
   const {questions} = props;
   const [slideIdx, setSlideIdx] = useState(0);
-  const [user, setUser] = useState<ProjectScores>({
-    [PROJECT.LARK]: 0,
-    [PROJECT.AR_UX]: 0,
-    [PROJECT.MOVING_ON]: 0,
-    [PROJECT.LETS_TAKE_A_WALK]: 0,
-    [PROJECT.BUY_SMALL]: 0,
-    [PROJECT.E_MOTION]: 0,
-  });
+  const [user, setUser] = useState<ProjectScores>(resetUser());
   const [firebase] = useState(new _Firebase());
 
   useEffect(() => {
@@ -68,14 +66,7 @@ export default function Carousel(props: CarouselProps): JSX.Element {
   const next = () => setSlideIdx(i => i + 1);
   const reset = () => {
     setSlideIdx(0);
-    setUser({
-      [PROJECT.LARK]: 0,
-      [PROJECT.AR_UX]: 0,
-      [PROJECT.MOVING_ON]: 0,
-      [PROJECT.LETS_TAKE_A_WALK]: 0,
-      [PROJECT.BUY_SMALL]: 0,
-      [PROJECT.E_MOTION]: 0,
-    });
+    setUser(resetUser());
   };
 
   return (

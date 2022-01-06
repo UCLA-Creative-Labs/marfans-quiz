@@ -1,5 +1,5 @@
 import firebase from 'firebase';
-import { PROJECT, ProjectScores } from '.';
+import { ProjectScores } from '.';
 
 const FIREBASE_DEV = {
   apiKey: 'AIzaSyC-2MLU3Q02juzp7z3WcprfAjzby9EXH4A',
@@ -64,7 +64,7 @@ export class _Firebase {
       .signOut();
   }
 
-  public updateProjectCount(project: PROJECT): Promise<void> {
+  public updateProjectCount(project: string): Promise<void> {
     if (!this.auth_user) return Promise.resolve();
     return firebase
       .firestore(app)

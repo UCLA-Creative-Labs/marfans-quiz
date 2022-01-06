@@ -3,9 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
+    "dev": "yarn run pull && next dev",
+    "build": "yarn run pull && next build",
     "start": "next start",
+    "pull": "node scripts/prebuild.js",
     "eslint": "npx eslint '**/*.tsx' '**/*.ts'",
     "stylelint": "npx stylelint '**/*.css' '**/*.scss'",
     "lint": "yarn run eslint && yarn run stylelint",
@@ -26,6 +27,7 @@
     "eslint": "^7.22.0",
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-react": "^7.23.1",
+    "node-fetch": "^2.6.1",
     "sass": "^1.32.8",
     "stylelint": "^13.12.0",
     "stylelint-config-standard": "^21.0.0"
