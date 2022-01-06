@@ -61,7 +61,12 @@ export const getStaticProps: GetStaticProps = async () => {
   const {data} = await res.json();
 
   const PROJECTS = data.quizCollection.items[0].projects;
-  const QUESTIONS = data.quizCollection.items[0].questions;
+  const QUESTIONS = Object.values(data.quizCollection.items[0].questions).map(((question: any) => {
+    return {
+      question: question.question,
+      answers: Object.values(question.answers),
+    };
+  }));
 
   return {
     props: {

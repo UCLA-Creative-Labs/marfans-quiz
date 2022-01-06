@@ -3,7 +3,6 @@
 #container {
   max-width: 600px;
   width: 100%;
-
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -19,7 +18,8 @@
   font-size: 1.2rem;
 }
 
-.answer, .next {
+.answer,
+.next {
   width: 100%;
 }
 
