@@ -1,18 +1,4 @@
-import { Question, Answer } from './types';
-import data from '../public/data.json';
-
-export const PROJECTS: string[] = data.projects;
-
-export const QUESTIONS: Question[] =
-  Object.values(data.questions).map(question => {
-    return {
-      question: question.question,
-      answers: Object.values(question.answers).map(answer => {
-        return answer as Answer
-      })
-    };
-  });
-
+import { Question } from './types';
 
 export const finalQuestion: Question = {
   question: 'are you coming to demo day? (6/4 @ 7:30 p.m. pdt)',
@@ -26,14 +12,14 @@ export const finalQuestion: Question = {
       projects: [],
     },
     {
-       answer: 'Of course',
-       projects: [],
+      answer: 'Of course',
+      projects: [],
     },
     {
-       answer: 'I\'ll be there',
-       projects: [],
-    }
-  ]
+      answer: 'I\'ll be there',
+      projects: [],
+    },
+  ],
 };
 
 export const LOADING_PHRASES = [

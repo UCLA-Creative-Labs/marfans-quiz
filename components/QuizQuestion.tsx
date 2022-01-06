@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import React, { useContext, useState } from 'react';
 import styles from '../styles/QuizQuestion.module.scss';
 import { Answer, Question } from '../utils';

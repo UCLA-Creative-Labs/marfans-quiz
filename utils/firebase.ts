@@ -12,14 +12,14 @@ const FIREBASE_DEV = {
 };
 
 const FIREBASE_PROD = {
-  apiKey: "AIzaSyAhZHDNuy30rH-k59Cz1Km6kHQqtQxB4tQ",
-  authDomain: "marfans-3b2fe.firebaseapp.com",
-  projectId: "marfans-3b2fe",
-  storageBucket: "marfans-3b2fe.appspot.com",
-  messagingSenderId: "22687257895",
-  appId: "1:22687257895:web:02b46ca0071862fda20502",
-  measurementId: "G-SR0ZYYS7C8"
-}
+  apiKey: 'AIzaSyAhZHDNuy30rH-k59Cz1Km6kHQqtQxB4tQ',
+  authDomain: 'marfans-3b2fe.firebaseapp.com',
+  projectId: 'marfans-3b2fe',
+  storageBucket: 'marfans-3b2fe.appspot.com',
+  messagingSenderId: '22687257895',
+  appId: '1:22687257895:web:02b46ca0071862fda20502',
+  measurementId: 'G-SR0ZYYS7C8',
+};
 
 const app =
   !firebase.apps.length
@@ -44,8 +44,8 @@ export class _Firebase {
             ? 'marfans-quiz'
             : 'marfans-quiz-dev')
           .doc('PROJECTS');
-        projectsDoc.get().then((doc) => {
-          if (!doc.exists) projectsDoc.set({});
+        void projectsDoc.get().then((doc) => {
+          if (!doc.exists) void projectsDoc.set({});
           success();
         });
       } else {
@@ -73,7 +73,7 @@ export class _Firebase {
         : 'marfans-quiz-dev')
       .doc('PROJECTS')
       .update({
-        [project]: firebase.firestore.FieldValue.increment(1)
+        [project]: firebase.firestore.FieldValue.increment(1),
       });
   }
 

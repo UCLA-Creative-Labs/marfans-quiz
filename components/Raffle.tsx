@@ -4,17 +4,17 @@ import { CarouselContext } from './Carousel';
 
 export default function Raffle(): JSX.Element {
   const [ userEntered, setUserEntered ] = useState(false);
-  const [ userName, setUserName ] = useState("");
-  const [ userHandle, setUserHandle ] = useState("");
+  const [ userName, setUserName ] = useState('');
+  const [ userHandle, setUserHandle ] = useState('');
 
-  const {next, quizLen, user, setUser, firebase} = useContext(CarouselContext);
+  const {next, firebase} = useContext(CarouselContext);
 
   const skip = () => {
     next();
-  }
+  };
 
   const submit = () => {
-    firebase.addRaffleEntry(userName, userHandle);
+    void firebase.addRaffleEntry(userName, userHandle);
     next();
   };
 
@@ -29,9 +29,9 @@ export default function Raffle(): JSX.Element {
       <input
         className={styles.input}
         style={userName.length > 0 ? {
-          border: '1px solid black'
+          border: '1px solid black',
         } : {
-          border: '1px solid darkgray'
+          border: '1px solid darkgray',
         }}
         value={userName}
         placeholder={'Joe Bruin'}
@@ -43,9 +43,9 @@ export default function Raffle(): JSX.Element {
       <input
         className={styles.input}
         style={userName.length > 0 ? {
-          border: '1px solid black'
+          border: '1px solid black',
         } : {
-          border: '1px solid darkgray'
+          border: '1px solid darkgray',
         }}
         value={userHandle}
         placeholder={'@joebruin'}

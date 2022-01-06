@@ -1,10 +1,16 @@
+import { GetStaticProps } from 'next';
 import React, { useEffect, useState } from 'react';
 import Carousel from '../components/Carousel';
 import Layout from '../components/Layout';
-import { QUESTIONS, Question, finalQuestion } from '../utils';
+import { Question, finalQuestion } from '../utils';
 import { shuffle } from '../utils/array';
 
-export default function Home(): JSX.Element {
+interface HomeProps {
+  PROJECTS: string[]
+  QUESTIONS: Question[];
+}
+
+export default function Home({PROJECTS, QUESTIONS}: HomeProps): JSX.Element {
   const [questions, setQuestions] = useState<Question[]>([]);
 
   useEffect(() => {
@@ -24,7 +30,44 @@ export default function Home(): JSX.Element {
 
   return (
     <Layout>
-      <Carousel questions={questions}/>
+      <Carousel projects={PROJECTS} questions={questions}/>
     </Layout>
   );
 }
+
+const query = `
+  query {
+    quizCollection(limit: 5) {
+      items {
+        title
+        projects
+        questions
+      }
+    }
+  }
+`;
+
+export const getStaticProps: GetStaticProps = async () => {
+  const url = `https://graphql.contentful.com/content/v1/spaces/${process.env.SPACE_ID}`;
+
+  const res = await fetch(url, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${process.env.CONTENTFUL_DELIVERY_API}`,
+    },
+    body: JSON.stringify({query}),
+  });
+  const {data} = await res.json();
+
+  const PROJECTS = data.quizCollection.items[0].projects;
+  const QUESTIONS = data.quizCollection.items[0].questions;
+
+  return {
+    props: {
+      PROJECTS,
+      QUESTIONS,
+    },
+    revalidate: 60,
+  };
+};

@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { CarouselContext } from './Carousel';
-import { ProjectScores } from '../utils';
 import styles from '../styles/Results.module.scss';
+import { ProjectScores } from '../utils';
+import { CarouselContext } from './Carousel';
 
 export interface ResultsProps {
   reset: () => void;
@@ -18,10 +18,10 @@ export default function Results(props: ResultsProps): JSX.Element {
 
   useEffect(() => {
     const _result = Object.keys(user).reduce((key_l: string, key_r: string) =>
-                               user[key_l] > user[key_r] ? key_l : key_r);
+      user[key_l] > user[key_r] ? key_l : key_r);
 
     setResult(_result);
-    firebase.updateProjectCount(_result).then(() => {
+    void firebase.updateProjectCount(_result).then(() => {
       setTimeout(() => {
         setLoaded(true);
       }, 2500);
@@ -30,7 +30,7 @@ export default function Results(props: ResultsProps): JSX.Element {
 
   useEffect(() => {
     if (!loaded) return;
-    (async () => {
+    void (async () => {
       const _data = await firebase.getProjectCounts();
       if (!_data) return;
       setTotal(Object.values(_data).reduce((acc, v) => v + acc, 0));
@@ -47,11 +47,11 @@ export default function Results(props: ResultsProps): JSX.Element {
             <div className={`${styles.circle} ${styles.blue}`}/>
           </div>
           <h1>
-           {LOADING_CONTENT}
+            {LOADING_CONTENT}
           </h1>
         </div>
       </div>
-    )
+    );
   }
 
   return (
@@ -71,7 +71,7 @@ export default function Results(props: ResultsProps): JSX.Element {
                 <div className={styles.percentage}>{percentage}%</div>
               </div>
             </div>
-          )})}
+          );})}
       </div>
       <button onClick={reset}>
         Again!

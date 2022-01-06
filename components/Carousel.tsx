@@ -1,13 +1,14 @@
 import React, {createContext, useEffect, useState} from 'react';
 
-import { Question, ProjectScores, PROJECTS, shuffle, LOADING_PHRASES } from '../utils';
+import { Question, ProjectScores, shuffle, LOADING_PHRASES } from '../utils';
 import { _Firebase } from '../utils/firebase';
 import QuizQuestion from './QuizQuestion';
+import Raffle from './Raffle';
 import Results from './Results';
 import Splash from './Splash';
-import Raffle from './Raffle';
 
 export interface CarouselProps {
+  projects: string[];
   questions: Question[];
 }
 
@@ -27,13 +28,12 @@ export const CarouselContext = createContext<ICarouselContext>({
   firebase: null,
 });
 
-const resetUser = (): ProjectScores => PROJECTS.reduce((acc, p) => {
-  acc[p] = 0;
-  return acc;
-}, {});
-
 export default function Carousel(props: CarouselProps): JSX.Element {
-  const {questions} = props;
+  const {projects, questions} = props;
+  const resetUser = (): ProjectScores => projects.reduce((acc, p) => {
+    acc[p] = 0;
+    return acc;
+  }, {});
   const [slideIdx, setSlideIdx] = useState(0);
   const [user, setUser] = useState<ProjectScores>(resetUser());
   const [firebase] = useState(new _Firebase());
@@ -45,8 +45,8 @@ export default function Carousel(props: CarouselProps): JSX.Element {
 
     if (idx) setSlideIdx(+idx);
     if (state) setUser(JSON.parse(state));
-  
-    firebase.auth().signInAnonymously()
+
+    void firebase.auth().signInAnonymously()
       .then(() => {
         firebase.load(() => void 0, () => void 0);
       });
